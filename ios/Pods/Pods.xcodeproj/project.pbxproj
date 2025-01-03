@@ -5439,6 +5439,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002690 /* DKImagePickerController.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5450,6 +5452,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/DKImagePickerController/DKImagePickerController-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/DKImagePickerController-Info.plist";
@@ -5467,7 +5470,9 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5479,6 +5484,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002680 /* DKImagePickerController.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5490,6 +5497,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/DKImagePickerController/DKImagePickerController-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/DKImagePickerController-Info.plist";
@@ -5508,7 +5516,9 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -5519,6 +5529,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002690 /* DKImagePickerController.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5530,6 +5542,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/DKImagePickerController/DKImagePickerController-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/DKImagePickerController-Info.plist";
@@ -5547,7 +5560,9 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5559,11 +5574,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002690 /* DKImagePickerController.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DKImagePickerController";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = DKImagePickerController;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/ResourceBundle-DKImagePickerController-DKImagePickerController-Info.plist";
@@ -5571,6 +5588,7 @@
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -5580,11 +5598,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002680 /* DKImagePickerController.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DKImagePickerController";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = DKImagePickerController;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/ResourceBundle-DKImagePickerController-DKImagePickerController-Info.plist";
@@ -5593,6 +5613,7 @@
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -5603,11 +5624,13 @@
 			baseConfigurationReference = 46EB2E00002690 /* DKImagePickerController.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DKImagePickerController";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = DKImagePickerController;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/ResourceBundle-DKImagePickerController-DKImagePickerController-Info.plist";
@@ -5615,6 +5638,7 @@
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -5626,6 +5650,7 @@
 			baseConfigurationReference = 46EB2E00002A70 /* DKPhotoGallery.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5637,6 +5662,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/DKPhotoGallery/DKPhotoGallery-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/DKPhotoGallery-Info.plist";
@@ -5654,7 +5680,9 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5667,6 +5695,7 @@
 			baseConfigurationReference = 46EB2E00002A60 /* DKPhotoGallery.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5678,6 +5707,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/DKPhotoGallery/DKPhotoGallery-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/DKPhotoGallery-Info.plist";
@@ -5696,7 +5726,9 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -5708,6 +5740,7 @@
 			baseConfigurationReference = 46EB2E00002A70 /* DKPhotoGallery.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5719,6 +5752,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/DKPhotoGallery/DKPhotoGallery-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/DKPhotoGallery-Info.plist";
@@ -5736,7 +5770,9 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5748,12 +5784,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002A70 /* DKPhotoGallery.release.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DKPhotoGallery";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = DKPhotoGallery;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/ResourceBundle-DKPhotoGallery-DKPhotoGallery-Info.plist";
@@ -5761,6 +5798,7 @@
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -5770,12 +5808,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002A60 /* DKPhotoGallery.debug.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DKPhotoGallery";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = DKPhotoGallery;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/ResourceBundle-DKPhotoGallery-DKPhotoGallery-Info.plist";
@@ -5784,6 +5823,7 @@
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -5793,13 +5833,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002A70 /* DKPhotoGallery.release.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DKPhotoGallery";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = DKPhotoGallery;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/ResourceBundle-DKPhotoGallery-DKPhotoGallery-Info.plist";
@@ -5807,6 +5848,7 @@
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -5820,14 +5862,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -5840,8 +5885,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5849,6 +5896,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -5860,14 +5908,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -5877,6 +5928,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003630 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5888,6 +5940,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
@@ -5905,6 +5958,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -5917,6 +5971,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003620 /* SDWebImage.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5928,6 +5983,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
@@ -5946,6 +6002,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5957,6 +6014,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003630 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -5968,6 +6026,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
@@ -5985,6 +6044,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -5997,11 +6057,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003630 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SDWebImage";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
@@ -6009,6 +6071,7 @@
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6018,11 +6081,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003620 /* SDWebImage.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SDWebImage";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
@@ -6031,6 +6096,7 @@
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6041,11 +6107,13 @@
 			baseConfigurationReference = 46EB2E00003630 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SDWebImage";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
@@ -6053,6 +6121,7 @@
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -6063,6 +6132,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000038A0 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -6074,6 +6144,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyGif/SwiftyGif-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/SwiftyGif-Info.plist";
@@ -6091,6 +6162,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6103,6 +6175,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003890 /* SwiftyGif.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -6114,6 +6187,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyGif/SwiftyGif-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/SwiftyGif-Info.plist";
@@ -6132,6 +6206,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -6143,6 +6218,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000038A0 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -6154,6 +6230,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyGif/SwiftyGif-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/SwiftyGif-Info.plist";
@@ -6171,6 +6248,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6183,11 +6261,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000038A0 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyGif";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = SwiftyGif;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/ResourceBundle-SwiftyGif-SwiftyGif-Info.plist";
@@ -6195,6 +6275,7 @@
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6204,11 +6285,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003890 /* SwiftyGif.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyGif";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = SwiftyGif;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/ResourceBundle-SwiftyGif-SwiftyGif-Info.plist";
@@ -6217,6 +6300,7 @@
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6227,11 +6311,13 @@
 			baseConfigurationReference = 46EB2E000038A0 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyGif";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = SwiftyGif;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/ResourceBundle-SwiftyGif-SwiftyGif-Info.plist";
@@ -6239,6 +6325,7 @@
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -6262,7 +6349,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6293,6 +6380,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6319,7 +6407,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6351,6 +6439,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -6376,7 +6465,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6407,6 +6496,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6420,11 +6510,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003AD0 /* app_links.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/app_links";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = app_links;
 				INFOPLIST_FILE = "Target Support Files/app_links/ResourceBundle-app_links_ios_privacy-app_links-Info.plist";
@@ -6432,6 +6524,7 @@
 				PRODUCT_NAME = app_links_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6441,11 +6534,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003AC0 /* app_links.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/app_links";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = app_links;
 				INFOPLIST_FILE = "Target Support Files/app_links/ResourceBundle-app_links_ios_privacy-app_links-Info.plist";
@@ -6454,6 +6549,7 @@
 				PRODUCT_NAME = app_links_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6464,11 +6560,13 @@
 			baseConfigurationReference = 46EB2E00003AD0 /* app_links.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/app_links";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = app_links;
 				INFOPLIST_FILE = "Target Support Files/app_links/ResourceBundle-app_links_ios_privacy-app_links-Info.plist";
@@ -6476,6 +6574,7 @@
 				PRODUCT_NAME = app_links_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -6500,7 +6599,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6531,6 +6630,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6558,7 +6658,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6590,6 +6690,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -6616,7 +6717,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6647,6 +6748,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6660,11 +6762,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003D50 /* file_picker.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/file_picker";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = file_picker;
 				INFOPLIST_FILE = "Target Support Files/file_picker/ResourceBundle-file_picker_ios_privacy-file_picker-Info.plist";
@@ -6672,6 +6776,7 @@
 				PRODUCT_NAME = file_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6681,11 +6786,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003D40 /* file_picker.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/file_picker";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = file_picker;
 				INFOPLIST_FILE = "Target Support Files/file_picker/ResourceBundle-file_picker_ios_privacy-file_picker-Info.plist";
@@ -6694,6 +6801,7 @@
 				PRODUCT_NAME = file_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6704,11 +6812,13 @@
 			baseConfigurationReference = 46EB2E00003D50 /* file_picker.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/file_picker";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = file_picker;
 				INFOPLIST_FILE = "Target Support Files/file_picker/ResourceBundle-file_picker_ios_privacy-file_picker-Info.plist";
@@ -6716,6 +6826,7 @@
 				PRODUCT_NAME = file_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -6739,7 +6850,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6770,6 +6881,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6796,7 +6908,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6828,6 +6940,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -6853,7 +6966,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -6884,6 +6997,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -6897,11 +7011,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004130 /* geolocator_apple.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/geolocator_apple";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = geolocator_apple;
 				INFOPLIST_FILE = "Target Support Files/geolocator_apple/ResourceBundle-geolocator_apple_privacy-geolocator_apple-Info.plist";
@@ -6909,6 +7025,7 @@
 				PRODUCT_NAME = geolocator_apple_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6918,11 +7035,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004120 /* geolocator_apple.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/geolocator_apple";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = geolocator_apple;
 				INFOPLIST_FILE = "Target Support Files/geolocator_apple/ResourceBundle-geolocator_apple_privacy-geolocator_apple-Info.plist";
@@ -6931,6 +7050,7 @@
 				PRODUCT_NAME = geolocator_apple_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -6941,11 +7061,13 @@
 			baseConfigurationReference = 46EB2E00004130 /* geolocator_apple.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/geolocator_apple";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = geolocator_apple;
 				INFOPLIST_FILE = "Target Support Files/geolocator_apple/ResourceBundle-geolocator_apple_privacy-geolocator_apple-Info.plist";
@@ -6953,6 +7075,7 @@
 				PRODUCT_NAME = geolocator_apple_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -6976,7 +7099,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7007,6 +7130,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7033,7 +7157,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7065,6 +7189,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -7090,7 +7215,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7121,6 +7246,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7134,11 +7260,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000043F0 /* image_picker_ios.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/image_picker_ios";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = image_picker_ios;
 				INFOPLIST_FILE = "Target Support Files/image_picker_ios/ResourceBundle-image_picker_ios_privacy-image_picker_ios-Info.plist";
@@ -7146,6 +7274,7 @@
 				PRODUCT_NAME = image_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7155,11 +7284,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000043E0 /* image_picker_ios.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/image_picker_ios";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = image_picker_ios;
 				INFOPLIST_FILE = "Target Support Files/image_picker_ios/ResourceBundle-image_picker_ios_privacy-image_picker_ios-Info.plist";
@@ -7168,6 +7299,7 @@
 				PRODUCT_NAME = image_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7178,11 +7310,13 @@
 			baseConfigurationReference = 46EB2E000043F0 /* image_picker_ios.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/image_picker_ios";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = image_picker_ios;
 				INFOPLIST_FILE = "Target Support Files/image_picker_ios/ResourceBundle-image_picker_ios_privacy-image_picker_ios-Info.plist";
@@ -7190,6 +7324,7 @@
 				PRODUCT_NAME = image_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -7214,7 +7349,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7240,6 +7375,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7267,7 +7403,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7294,6 +7430,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -7320,7 +7457,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7346,6 +7483,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7359,11 +7497,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000045F0 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
@@ -7371,6 +7511,7 @@
 				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7380,11 +7521,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000045E0 /* path_provider_foundation.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
@@ -7393,6 +7536,7 @@
 				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7403,11 +7547,13 @@
 			baseConfigurationReference = 46EB2E000045F0 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
@@ -7415,6 +7561,7 @@
 				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -7438,7 +7585,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7464,6 +7611,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7490,7 +7638,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7517,6 +7665,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -7542,7 +7691,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7568,6 +7717,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7581,11 +7731,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004810 /* shared_preferences_foundation.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/shared_preferences_foundation";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
@@ -7593,6 +7745,7 @@
 				PRODUCT_NAME = shared_preferences_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7602,11 +7755,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004800 /* shared_preferences_foundation.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/shared_preferences_foundation";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
@@ -7615,6 +7770,7 @@
 				PRODUCT_NAME = shared_preferences_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7625,11 +7781,13 @@
 			baseConfigurationReference = 46EB2E00004810 /* shared_preferences_foundation.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/shared_preferences_foundation";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
@@ -7637,6 +7795,7 @@
 				PRODUCT_NAME = shared_preferences_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -7660,7 +7819,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7686,6 +7845,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7712,7 +7872,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7739,6 +7899,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -7764,7 +7925,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7790,6 +7951,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -7803,11 +7965,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004A50 /* url_launcher_ios.release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/url_launcher_ios";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
@@ -7815,6 +7979,7 @@
 				PRODUCT_NAME = url_launcher_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7824,11 +7989,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004A40 /* url_launcher_ios.debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/url_launcher_ios";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
@@ -7837,6 +8004,7 @@
 				PRODUCT_NAME = url_launcher_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -7847,11 +8015,13 @@
 			baseConfigurationReference = 46EB2E00004A50 /* url_launcher_ios.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
 				CODE_SIGNING_REQUIRED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/url_launcher_ios";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				EXPANDED_CODE_SIGN_IDENTITY = "-";
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
@@ -7859,6 +8029,7 @@
 				PRODUCT_NAME = url_launcher_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -7884,7 +8055,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7914,6 +8085,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
@@ -7941,7 +8113,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -7972,6 +8144,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -7998,7 +8171,7 @@
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "$(inherited) armv7";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(inherited) i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
 					"\"/Users/albaraamac/development/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-arm64\"",
 					"$(inherited)",
@@ -8028,6 +8201,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_SUPPRESS_WARNINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				"VALID_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
