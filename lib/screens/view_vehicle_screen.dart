@@ -161,15 +161,29 @@ class _ViewVehicleScreenState extends State<ViewVehicleScreen> {
                   labelText: 'Mileage',
                   border: OutlineInputBorder(),
                 ),
-                keyboardType: TextInputType.number,
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the mileage';
                   }
-                  if (double.tryParse(value) == null) {
+                  final number = double.tryParse(value.replaceAll(',', ''));
+                  if (number == null || number.isNaN || number.isInfinite) {
                     return 'Please enter a valid number';
                   }
                   return null;
+                },
+                onChanged: (value) {
+                  if (value.isNotEmpty) {
+                    final number = double.tryParse(value.replaceAll(',', ''));
+                    if (number == null || number.isNaN || number.isInfinite) {
+                      _mileageController.text =
+                          value.substring(0, value.length - 1);
+                      _mileageController.selection = TextSelection.fromPosition(
+                        TextPosition(offset: _mileageController.text.length),
+                      );
+                    }
+                  }
                 },
               ),
               const SizedBox(height: 16),
@@ -198,10 +212,27 @@ class _ViewVehicleScreenState extends State<ViewVehicleScreen> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the make year';
                   }
-                  if (int.tryParse(value) == null) {
+                  final year = int.tryParse(value);
+                  if (year == null) {
                     return 'Please enter a valid year';
                   }
+                  if (year < 1900 || year > DateTime.now().year + 1) {
+                    return 'Please enter a valid year between 1900 and ${DateTime.now().year + 1}';
+                  }
                   return null;
+                },
+                onChanged: (value) {
+                  if (value.isNotEmpty) {
+                    final year = int.tryParse(value);
+                    if (year == null) {
+                      _makeYearController.text =
+                          value.substring(0, value.length - 1);
+                      _makeYearController.selection =
+                          TextSelection.fromPosition(
+                        TextPosition(offset: _makeYearController.text.length),
+                      );
+                    }
+                  }
                 },
               ),
               const SizedBox(height: 16),
@@ -211,15 +242,34 @@ class _ViewVehicleScreenState extends State<ViewVehicleScreen> {
                   labelText: 'Engine Capacity (L)',
                   border: OutlineInputBorder(),
                 ),
-                keyboardType: TextInputType.number,
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the engine capacity';
                   }
-                  if (double.tryParse(value) == null) {
+                  final number = double.tryParse(value.replaceAll(',', ''));
+                  if (number == null || number.isNaN || number.isInfinite) {
                     return 'Please enter a valid number';
                   }
+                  if (number <= 0 || number > 20) {
+                    return 'Please enter a valid engine capacity between 0 and 20L';
+                  }
                   return null;
+                },
+                onChanged: (value) {
+                  if (value.isNotEmpty) {
+                    final number = double.tryParse(value.replaceAll(',', ''));
+                    if (number == null || number.isNaN || number.isInfinite) {
+                      _engineCapacityController.text =
+                          value.substring(0, value.length - 1);
+                      _engineCapacityController.selection =
+                          TextSelection.fromPosition(
+                        TextPosition(
+                            offset: _engineCapacityController.text.length),
+                      );
+                    }
+                  }
                 },
               ),
               const SizedBox(height: 16),
@@ -249,11 +299,30 @@ class _ViewVehicleScreenState extends State<ViewVehicleScreen> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter the validity period';
                       }
-                      if (int.tryParse(value) == null) {
+                      final months = int.tryParse(value);
+                      if (months == null) {
                         return 'Please enter a valid number';
+                      }
+                      if (months <= 0 || months > 120) {
+                        return 'Please enter a valid period between 1 and 120 months';
                       }
                     }
                     return null;
+                  },
+                  onChanged: (value) {
+                    if (value.isNotEmpty) {
+                      final months = int.tryParse(value);
+                      if (months == null) {
+                        _licenseValidityMonthsController.text =
+                            value.substring(0, value.length - 1);
+                        _licenseValidityMonthsController.selection =
+                            TextSelection.fromPosition(
+                          TextPosition(
+                              offset:
+                                  _licenseValidityMonthsController.text.length),
+                        );
+                      }
+                    }
                   },
                 ),
               const SizedBox(height: 16),
@@ -283,11 +352,30 @@ class _ViewVehicleScreenState extends State<ViewVehicleScreen> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter the validity period';
                       }
-                      if (int.tryParse(value) == null) {
+                      final months = int.tryParse(value);
+                      if (months == null) {
                         return 'Please enter a valid number';
+                      }
+                      if (months <= 0 || months > 120) {
+                        return 'Please enter a valid period between 1 and 120 months';
                       }
                     }
                     return null;
+                  },
+                  onChanged: (value) {
+                    if (value.isNotEmpty) {
+                      final months = int.tryParse(value);
+                      if (months == null) {
+                        _insuranceValidityMonthsController.text =
+                            value.substring(0, value.length - 1);
+                        _insuranceValidityMonthsController.selection =
+                            TextSelection.fromPosition(
+                          TextPosition(
+                              offset: _insuranceValidityMonthsController
+                                  .text.length),
+                        );
+                      }
+                    }
                   },
                 ),
               const SizedBox(height: 16),
