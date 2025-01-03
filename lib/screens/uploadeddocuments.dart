@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../services/firebase_service.dart';
+import '../services/supabase_service.dart';
 import '../models/document_model.dart';
 
 class ViewDocumentsScreen extends StatefulWidget {
   final String userId;
 
-  const ViewDocumentsScreen({super.key, required this.userId});
+  const ViewDocumentsScreen({Key? key, required this.userId}) : super(key: key);
 
   @override
-  _ViewDocumentsScreenState createState() => _ViewDocumentsScreenState();
+  State<ViewDocumentsScreen> createState() => _ViewDocumentsScreenState();
 }
 
 class _ViewDocumentsScreenState extends State<ViewDocumentsScreen> {
   late Future<List<Document>> _documentsFuture;
-  final FirebaseService _firebaseService = FirebaseService();
+  final SupabaseService _supabaseService = SupabaseService();
 
   @override
   void initState() {
     super.initState();
-    _documentsFuture = _firebaseService.getUserDocuments(widget.userId);
+    _documentsFuture = _supabaseService.getUserDocuments(widget.userId);
   }
 
   Future<void> _openDocument(Document doc) async {
     try {
-      final url = doc.fileData['download_url'] as String;
-      if (await canLaunchUrl(Uri.parse(url))) {
-        await launchUrl(Uri.parse(url));
+      if (await canLaunchUrl(Uri.parse(doc.fileUrl))) {
+        await launchUrl(Uri.parse(doc.fileUrl));
       } else {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -104,15 +103,13 @@ class _ViewDocumentsScreenState extends State<ViewDocumentsScreen> {
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (doc.description != null &&
-                          doc.description!.isNotEmpty)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: Text(
-                            doc.description!,
-                            style: const TextStyle(color: Colors.grey),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8),
+                        child: Text(
+                          doc.description,
+                          style: const TextStyle(color: Colors.grey),
                         ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(top: 8),
                         child: Text(

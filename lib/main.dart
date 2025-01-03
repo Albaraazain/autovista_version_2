@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/view_vehicle_screen.dart';
 import 'screens/event_manager_screen.dart';
-import 'screens/document_screen.dart'; // Import the document screen
-import 'screens/parking_screen.dart'; // Import the parking screen
-import 'screens/added_vehicle.dart'; // Import the added vehicle screen
-import 'screens/uploadeddocuments.dart'; // Import the uploaded documents screen
+import 'screens/document_screen.dart';
+import 'screens/parking_screen.dart';
+import 'screens/added_vehicle.dart';
+import 'screens/uploadeddocuments.dart';
 import 'theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+
+  await Supabase.initialize(
+    url:
+        'https://qmxoticuvkdmeyteyvaa.supabase.co', // Replace with your Supabase URL
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFteG90aWN1dmtkbWV5dGV5dmFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU5MjM4MzQsImV4cCI6MjA1MTQ5OTgzNH0.pwmB8VjrNKdBMdG8mvB5D_Ke4u-ONCk9rMMbrs3mKfE', // Replace with your Supabase anon key
   );
+
   runApp(const AutoVistaApp());
 }
 

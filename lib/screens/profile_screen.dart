@@ -1,32 +1,53 @@
 import 'package:flutter/material.dart';
-import '../services/firebase_service.dart';
+import '../services/supabase_service.dart';
 import '../models/user_model.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String userId;
 
-  const ProfileScreen({super.key, required this.userId});
+  const ProfileScreen({Key? key, required this.userId}) : super(key: key);
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
   late Future<User> _userProfileFuture;
-  final FirebaseService _firebaseService = FirebaseService();
+  final SupabaseService _supabaseService = SupabaseService();
 
   @override
   void initState() {
     super.initState();
-    _userProfileFuture = _firebaseService.getUserProfile(widget.userId);
+    _userProfileFuture = _supabaseService.getUserProfile(widget.userId);
+  }
+
+  Future<void> _signOut() async {
+    try {
+      await _supabaseService.signOut();
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, '/login');
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error signing out: ${e.toString()}'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
-        automaticallyImplyLeading: false,
+        title: const Text('Profile'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: _signOut,
+          ),
+        ],
       ),
       body: FutureBuilder<User>(
         future: _userProfileFuture,
@@ -37,123 +58,97 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
           if (snapshot.hasError) {
             return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.error, size: 60, color: Colors.red),
-                  const SizedBox(height: 16),
-                  Text(
-                    "Error loading profile: ${snapshot.error}",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: Colors.red),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              child: Text(
+                'Error: ${snapshot.error}',
+                style: const TextStyle(color: Colors.red),
               ),
             );
           }
 
-          if (!snapshot.hasData || snapshot.data == null) {
-            return const Center(child: Text("No user data found."));
-          }
-
-          final User user = snapshot.data!;
-          return Padding(
+          final user = snapshot.data!;
+          return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 60,
-                  backgroundColor: Colors.grey[200],
-                  child:
-                      const Icon(Icons.person, size: 60, color: Colors.white),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  user.name,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  user.email,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.grey[600],
-                      ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 24),
-                Text(
-                  "Location: ${user.location}",
-                  style: Theme.of(context).textTheme.bodySmall,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 32),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/viewVehicle',
-                      arguments: widget.userId,
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 32),
-                  ),
-                  child: const Text("Edit Vehicle Information"),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/uploaded_documents',
-                      arguments: widget.userId,
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 32),
-                  ),
-                  child: const Text("View Scanned Documents"),
-                ),
-                const SizedBox(height: 16),
-                TextButton(
-                  onPressed: () async {
-                    try {
-                      await _firebaseService.signOut();
-                      if (!mounted) return;
-                      Navigator.pushReplacementNamed(context, '/login');
-                    } catch (e) {
-                      if (!mounted) return;
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("Failed to log out: ${e.toString()}"),
-                          backgroundColor: Colors.red,
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Personal Information',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      );
-                    }
-                  },
-                  child: const Text(
-                    "Log Out",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.teal,
+                        const SizedBox(height: 16),
+                        _buildInfoRow('Name', user.name),
+                        _buildInfoRow('Email', user.email),
+                        _buildInfoRow('Location', user.location),
+                      ],
                     ),
                   ),
                 ),
+                const SizedBox(height: 16),
+                if (user.licenseStartDate != null)
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'License Information',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          _buildInfoRow('Start Date', user.licenseStartDate!),
+                          if (user.licenseValidityMonths != null)
+                            _buildInfoRow(
+                              'Validity',
+                              '${user.licenseValidityMonths} months',
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
               ],
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _buildInfoRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 100,
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ),
+        ],
       ),
     );
   }

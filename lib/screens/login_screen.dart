@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:autovista/services/firebase_service.dart';
+import 'package:autovista/services/supabase_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,7 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  final FirebaseService _firebaseService = FirebaseService();
+  final SupabaseService _supabaseService = SupabaseService();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       try {
-                        String userId = await _firebaseService.loginUser(
+                        String userId = await _supabaseService.loginUser(
                           _emailController.text,
                           _passwordController.text,
                         );

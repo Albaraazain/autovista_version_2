@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:autovista/services/firebase_service.dart';
+import 'package:autovista/services/supabase_service.dart';
 import 'package:intl/intl.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-  final FirebaseService _firebaseService = FirebaseService();
+  final SupabaseService _supabaseService = SupabaseService();
 
   // Function to show date picker
   Future<void> _selectDate(BuildContext context) async {
@@ -137,7 +137,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       try {
-                        String userId = await _firebaseService.registerUser(
+                        String userId = await _supabaseService.registerUser(
                           _nameController.text,
                           _emailController.text,
                           _passwordController.text,

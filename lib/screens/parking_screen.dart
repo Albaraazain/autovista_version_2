@@ -1,78 +1,131 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import '../services/firebase_service.dart';
+import '../services/supabase_service.dart';
 import '../models/parking_model.dart';
 
-class ParkingScreen extends StatelessWidget {
-  final String userId;
-  final FirebaseService _firebaseService = FirebaseService();
+class ParkingScreen extends StatefulWidget {
+  final String? userId;
 
-  ParkingScreen({super.key, required this.userId});
+  const ParkingScreen({Key? key, this.userId}) : super(key: key);
 
-  Future<void> saveParking(BuildContext context) async {
-    File? selectedImage;
+  @override
+  State<ParkingScreen> createState() => _ParkingScreenState();
+}
 
-    final addPicture = await showDialog<bool>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text("Add Picture"),
-          content: const Text(
-              "Would you like to add a picture of the parking location?"),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text("No"),
-            ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text("Yes"),
-            ),
-          ],
-        );
-      },
-    );
+class _ParkingScreenState extends State<ParkingScreen> {
+  final SupabaseService _supabaseService = SupabaseService();
+  LatLng? _currentLocation;
+  LatLng? _parkedLocation;
+  bool _isLoading = true;
+  String? _photoUrl;
 
-    if (addPicture == true) {
-      final picker = ImagePicker();
-      final pickedFile = await picker.pickImage(source: ImageSource.camera);
-      if (pickedFile != null) {
-        selectedImage = File(pickedFile.path);
-      }
-    }
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+    _loadParkedLocation();
+  }
 
+  Future<void> _getCurrentLocation() async {
     try {
-      Position position = await Geolocator.getCurrentPosition(
+      final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high,
       );
-
-      String currentDate = DateTime.now().toIso8601String().split('T').first;
-
-      final parking = Parking(
-        latitude: position.latitude,
-        longitude: position.longitude,
-        timestamp: currentDate,
-        userId: userId,
-        photoData:
-            selectedImage != null ? {"file_path": selectedImage.path} : null,
+      setState(() {
+        _currentLocation = LatLng(position.latitude, position.longitude);
+        _isLoading = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error getting location: ${e.toString()}'),
+          backgroundColor: Colors.red,
+        ),
       );
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 
-      await _firebaseService.saveParking(userId, parking);
+  Future<void> _loadParkedLocation() async {
+    if (widget.userId == null) return;
 
-      if (!context.mounted) return;
+    try {
+      final parking = await _supabaseService.getLatestParking(widget.userId!);
+      if (parking != null) {
+        setState(() {
+          _parkedLocation = LatLng(parking.latitude, parking.longitude);
+          _photoUrl = parking.photoUrl;
+        });
+      }
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error loading parked location: ${e.toString()}'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+  Future<void> _saveParkedLocation() async {
+    if (widget.userId == null || _currentLocation == null) return;
+
+    try {
+      await _supabaseService.saveParking(
+        widget.userId!,
+        _currentLocation!.latitude,
+        _currentLocation!.longitude,
+      );
+      setState(() {
+        _parkedLocation = _currentLocation;
+      });
+
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Your parking location has been saved!"),
+          content: Text('Parking location saved successfully'),
           backgroundColor: Colors.green,
         ),
       );
     } catch (e) {
-      if (!context.mounted) return;
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Error saving parking: ${e.toString()}"),
+          content: Text('Error saving parking location: ${e.toString()}'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+  Future<void> _clearParkedLocation() async {
+    if (widget.userId == null) return;
+
+    try {
+      await _supabaseService.clearParking(widget.userId!);
+      setState(() {
+        _parkedLocation = null;
+        _photoUrl = null;
+      });
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Parking location cleared successfully'),
+          backgroundColor: Colors.green,
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error clearing parking location: ${e.toString()}'),
           backgroundColor: Colors.red,
         ),
       );
@@ -81,50 +134,91 @@ class ParkingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Save Parking Location"),
-        automaticallyImplyLeading: false,
+        title: const Text('Parking Location'),
       ),
-      body: Stack(
-        fit: StackFit.expand,
+      body: Column(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Save Your Parking Location",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.teal,
-                  shadows: [
-                    Shadow(
-                        blurRadius: 10,
-                        color: Colors.black26,
-                        offset: Offset(2, 2)),
+          Expanded(
+            child: FlutterMap(
+              options: MapOptions(
+                center: _currentLocation ?? const LatLng(0, 0),
+                zoom: 15.0,
+              ),
+              children: [
+                TileLayer(
+                  urlTemplate:
+                      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  subdomains: const ['a', 'b', 'c'],
+                ),
+                MarkerLayer(
+                  markers: [
+                    if (_currentLocation != null)
+                      Marker(
+                        point: _currentLocation!,
+                        child: const Icon(
+                          Icons.location_on,
+                          color: Colors.blue,
+                          size: 40.0,
+                        ),
+                        width: 40.0,
+                        height: 40.0,
+                      ),
+                    if (_parkedLocation != null)
+                      Marker(
+                        point: _parkedLocation!,
+                        child: const Icon(
+                          Icons.local_parking,
+                          color: Colors.red,
+                          size: 40.0,
+                        ),
+                        width: 40.0,
+                        height: 40.0,
+                      ),
                   ],
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton.icon(
-                onPressed: () => saveParking(context),
-                icon: const Icon(Icons.location_on, size: 40),
-                label: const Text(
-                  "Save Current Location",
-                  style: TextStyle(fontSize: 18),
+              ],
+            ),
+          ),
+          if (_photoUrl != null)
+            Container(
+              height: 100,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(_photoUrl!),
+                  fit: BoxFit.cover,
                 ),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(300, 80),
-                  backgroundColor: Colors.teal,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: _saveParkedLocation,
+                  child: const Text('Save Location'),
+                ),
+                if (_parkedLocation != null)
+                  ElevatedButton(
+                    onPressed: _clearParkedLocation,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
+                    child: const Text('Clear Location'),
                   ),
-                  elevation: 8,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

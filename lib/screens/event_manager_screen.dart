@@ -1,37 +1,47 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:table_calendar/table_calendar.dart';
-import '../services/firebase_service.dart';
+import 'package:intl/intl.dart';
 import '../models/event_model.dart';
-import './select_location_screen.dart';
+import '../services/supabase_service.dart';
 
 class CalendarFuelScreen extends StatefulWidget {
   final String? userId;
 
-  const CalendarFuelScreen({super.key, this.userId});
+  const CalendarFuelScreen({Key? key, this.userId}) : super(key: key);
 
   @override
-  _CalendarFuelScreenState createState() => _CalendarFuelScreenState();
+  State<CalendarFuelScreen> createState() => _CalendarFuelScreenState();
 }
 
 class _CalendarFuelScreenState extends State<CalendarFuelScreen> {
-  final CalendarFormat _calendarFormat = CalendarFormat.month;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
-  Map<DateTime, List<Event>> _events = {};
-  final FirebaseService _firebaseService = FirebaseService();
+  late DateTime _focusedDay;
+  late DateTime _selectedDay;
+  late Map<DateTime, List<Event>> _events;
+  final SupabaseService _supabaseService = SupabaseService();
 
-  String _selectedEventType = "Trip";
-  final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _fuelLevelController = TextEditingController();
-  LatLng? _startLocation;
-  LatLng? _endLocation;
+  final _titleController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  final _fuelNeededController = TextEditingController();
+  final _locationController = TextEditingController();
+  final _reminderTimeController = TextEditingController();
+  final _notesController = TextEditingController();
+  String _selectedEventType = 'Maintenance';
+
+  final List<String> _eventTypes = [
+    'Maintenance',
+    'Fuel',
+    'Service',
+    'Insurance',
+    'License',
+    'Other',
+  ];
 
   @override
   void initState() {
     super.initState();
+    _focusedDay = DateTime.now();
+    _selectedDay = _focusedDay;
+    _events = {};
     _loadEvents();
   }
 
@@ -39,7 +49,7 @@ class _CalendarFuelScreenState extends State<CalendarFuelScreen> {
     if (widget.userId == null) return;
 
     try {
-      final events = await _firebaseService.getUserEvents(widget.userId!);
+      final events = await _supabaseService.getUserEvents(widget.userId!);
       setState(() {
         _events = {};
         for (var event in events) {
@@ -56,236 +66,216 @@ class _CalendarFuelScreenState extends State<CalendarFuelScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Error loading events: ${e.toString()}"),
+          content: Text('Error loading events: ${e.toString()}'),
           backgroundColor: Colors.red,
         ),
       );
     }
   }
 
-  @override
-  void dispose() {
-    _descriptionController.dispose();
-    _fuelLevelController.dispose();
-    super.dispose();
+  List<Event> _getEventsForDay(DateTime day) {
+    return _events[day] ?? [];
   }
 
-  void _showAddEventDialog() {
-    if (widget.userId == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Please log in to add events"),
-          backgroundColor: Colors.red,
-        ),
-      );
-      return;
-    }
-
-    _startLocation = null;
-    _endLocation = null;
-    _fuelLevelController.clear();
+  Future<void> _showAddEventDialog() async {
+    _titleController.clear();
     _descriptionController.clear();
+    _fuelNeededController.clear();
+    _locationController.clear();
+    _reminderTimeController.clear();
+    _notesController.clear();
+    _selectedEventType = 'Maintenance';
 
-    showDialog(
+    await showDialog(
       context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setState) => AlertDialog(
-          title: const Text("Add Event",
-              style: TextStyle(color: Colors.teal, fontSize: 20)),
-          content: SingleChildScrollView(
-            child: Column(
-              children: [
-                DropdownButtonFormField<String>(
-                  value: _selectedEventType,
-                  decoration: const InputDecoration(labelText: "Event Type"),
-                  items: [
-                    "Trip",
-                    "Insurance Update",
-                    "Maintenance Checkup",
-                    "Others"
-                  ].map((type) {
-                    return DropdownMenuItem(value: type, child: Text(type));
-                  }).toList(),
-                  onChanged: (value) =>
-                      setState(() => _selectedEventType = value!),
-                ),
-                if (_selectedEventType == "Trip") ...[
-                  ElevatedButton(
-                    onPressed: () => _showSelectLocationScreen(setState),
-                    child: const Text("Select Start & End Locations"),
-                  ),
-                  TextField(
-                    controller: _fuelLevelController,
-                    decoration:
-                        const InputDecoration(labelText: "Fuel Level (0-1)"),
-                    keyboardType: TextInputType.number,
-                  ),
-                ],
+      builder: (context) => AlertDialog(
+        title: const Text('Add Event'),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              DropdownButtonFormField<String>(
+                value: _selectedEventType,
+                decoration: const InputDecoration(labelText: 'Event Type'),
+                items: _eventTypes.map((type) {
+                  return DropdownMenuItem(
+                    value: type,
+                    child: Text(type),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedEventType = value!;
+                  });
+                },
+              ),
+              TextField(
+                controller: _titleController,
+                decoration: const InputDecoration(labelText: 'Title'),
+              ),
+              TextField(
+                controller: _descriptionController,
+                decoration: const InputDecoration(labelText: 'Description'),
+                maxLines: 3,
+              ),
+              if (_selectedEventType == 'Fuel')
                 TextField(
-                  controller: _descriptionController,
-                  decoration: const InputDecoration(labelText: "Description"),
+                  controller: _fuelNeededController,
+                  decoration:
+                      const InputDecoration(labelText: 'Fuel Amount (L)'),
+                  keyboardType: TextInputType.number,
                 ),
-              ],
-            ),
+              TextField(
+                controller: _locationController,
+                decoration:
+                    const InputDecoration(labelText: 'Location (Optional)'),
+              ),
+              TextField(
+                controller: _reminderTimeController,
+                decoration: const InputDecoration(
+                    labelText: 'Reminder Time (Optional)'),
+              ),
+              TextField(
+                controller: _notesController,
+                decoration:
+                    const InputDecoration(labelText: 'Notes (Optional)'),
+                maxLines: 2,
+              ),
+            ],
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("Cancel", style: TextStyle(color: Colors.teal)),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
-              onPressed: _saveEvent,
-              child: const Text("Save"),
-            ),
-          ],
         ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () async {
+              if (_titleController.text.isEmpty ||
+                  _descriptionController.text.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Please fill in all required fields'),
+                    backgroundColor: Colors.orange,
+                  ),
+                );
+                return;
+              }
+
+              final newEvent = Event(
+                userId: widget.userId!,
+                title: _titleController.text,
+                description: _descriptionController.text,
+                date: _selectedDay,
+                eventType: _selectedEventType,
+                fuelNeeded: _fuelNeededController.text.isNotEmpty
+                    ? double.parse(_fuelNeededController.text)
+                    : null,
+                location: _locationController.text.isNotEmpty
+                    ? _locationController.text
+                    : null,
+                reminderTime: _reminderTimeController.text.isNotEmpty
+                    ? _reminderTimeController.text
+                    : null,
+                notes: _notesController.text.isNotEmpty
+                    ? _notesController.text
+                    : null,
+              );
+
+              try {
+                await _supabaseService.createEvent(newEvent);
+                if (!mounted) return;
+                Navigator.pop(context);
+                _loadEvents();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Event added successfully'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              } catch (e) {
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Error adding event: ${e.toString()}'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            },
+            child: const Text('Add'),
+          ),
+        ],
       ),
     );
   }
 
-  Future<void> _saveEvent() async {
-    if (_selectedDay == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Please select a date first."),
-          backgroundColor: Colors.orange,
-        ),
-      );
-      return;
-    }
-
-    String title = _selectedEventType;
-    String description = _descriptionController.text;
-    double? fuelNeeded;
-
-    if (_selectedEventType == "Trip" &&
-        _startLocation != null &&
-        _endLocation != null) {
-      double fuelLevel = double.tryParse(_fuelLevelController.text) ?? 0.0;
-      double distance = _calculateDistance(_startLocation!, _endLocation!);
-      double engineCapacity = 50.0; // Default engine capacity
-      double averageConsumption = _getAverageConsumption(engineCapacity);
-      fuelNeeded = distance * averageConsumption;
-      double fuelRemaining = fuelLevel * engineCapacity;
-      double additionalFuel = max(0, fuelNeeded - fuelRemaining);
-
-      title = "Trip - ${distance.toStringAsFixed(2)} km";
-      description = """
-Distance: ${distance.toStringAsFixed(2)} km
-Fuel Needed: ${fuelNeeded.toStringAsFixed(2)} liters
-Fuel Remaining: ${fuelRemaining.toStringAsFixed(2)} liters
-Additional Fuel Required: ${additionalFuel.toStringAsFixed(2)} liters
-""";
-    }
-
-    final newEvent = Event(
-      title: title,
-      description: description,
-      date: _selectedDay!,
-      fuelNeeded: fuelNeeded,
-      userId: widget.userId!,
-    );
-
-    try {
-      await _firebaseService.createEvent(widget.userId!, newEvent);
-      await _loadEvents();
-
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Event saved successfully!"),
-          backgroundColor: Colors.green,
-        ),
-      );
-      Navigator.pop(context);
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Error saving event: ${e.toString()}"),
-          backgroundColor: Colors.red,
-        ),
-      );
-    }
-  }
-
-  double _calculateDistance(LatLng start, LatLng end) {
-    const double R = 6371; // Earth's radius in km
-    double dLat = _degToRad(end.latitude - start.latitude);
-    double dLon = _degToRad(end.longitude - start.longitude);
-    double a = sin(dLat / 2) * sin(dLat / 2) +
-        cos(_degToRad(start.latitude)) *
-            cos(_degToRad(end.latitude)) *
-            sin(dLon / 2) *
-            sin(dLon / 2);
-    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-    return R * c;
-  }
-
-  double _degToRad(double deg) => deg * (pi / 180);
-
-  double _getAverageConsumption(double engineCapacity) {
-    if (engineCapacity <= 1.5) return 0.05; // Small engine
-    if (engineCapacity <= 2.5) return 0.067; // Medium engine
-    return 0.1; // Large engine
-  }
-
-  void _showSelectLocationScreen(StateSetter dialogSetState) async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const SelectLocationScreen()),
-    );
-    if (result != null && result is List<LatLng>) {
-      dialogSetState(() {
-        _startLocation = result[0];
-        _endLocation = result[1];
-      });
-    }
-  }
-
-  void _showEventDetails(List<Event> events) {
-    showModalBottomSheet(
+  Future<void> _showEventDetails(Event event) async {
+    await showDialog(
       context: context,
-      builder: (_) => ListView(
-        padding: const EdgeInsets.all(10),
-        children: events.map((event) {
-          return ListTile(
-            title: Text(
-              event.title,
-              style: const TextStyle(
-                color: Colors.teal,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            subtitle: Text(event.description),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete, color: Colors.red),
-              onPressed: () async {
-                try {
-                  await _firebaseService.deleteEvent(widget.userId!, event.id!);
-                  await _loadEvents();
-                  if (!mounted) return;
-                  Navigator.pop(context);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Event deleted successfully"),
-                      backgroundColor: Colors.green,
-                    ),
-                  );
-                } catch (e) {
-                  if (!mounted) return;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("Error deleting event: ${e.toString()}"),
-                      backgroundColor: Colors.red,
-                    ),
-                  );
-                }
-              },
-            ),
-          );
-        }).toList(),
+      builder: (context) => AlertDialog(
+        title: Text(event.title),
+        content: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Type: ${event.eventType}'),
+              const SizedBox(height: 8),
+              Text('Description: ${event.description}'),
+              const SizedBox(height: 8),
+              Text('Date: ${DateFormat('yyyy-MM-dd').format(event.date)}'),
+              if (event.fuelNeeded != null) ...[
+                const SizedBox(height: 8),
+                Text('Fuel Amount: ${event.fuelNeeded!.toStringAsFixed(2)} L'),
+              ],
+              if (event.location != null) ...[
+                const SizedBox(height: 8),
+                Text('Location: ${event.location}'),
+              ],
+              if (event.reminderTime != null) ...[
+                const SizedBox(height: 8),
+                Text('Reminder: ${event.reminderTime}'),
+              ],
+              if (event.notes != null) ...[
+                const SizedBox(height: 8),
+                Text('Notes: ${event.notes}'),
+              ],
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Close'),
+          ),
+          TextButton(
+            onPressed: () async {
+              try {
+                await _supabaseService.deleteEvent(event.id!);
+                if (!mounted) return;
+                Navigator.pop(context);
+                _loadEvents();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Event deleted successfully'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              } catch (e) {
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Error deleting event: ${e.toString()}'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            },
+            child: const Text('Delete'),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+          ),
+        ],
       ),
     );
   }
@@ -294,34 +284,65 @@ Additional Fuel Required: ${additionalFuel.toStringAsFixed(2)} liters
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Calendar & Events"),
-        backgroundColor: Colors.teal,
-        automaticallyImplyLeading: false,
+        title: const Text('Event Manager'),
       ),
       body: Column(
         children: [
-          TableCalendar(
-            focusedDay: _focusedDay,
+          TableCalendar<Event>(
             firstDay: DateTime.utc(2020, 1, 1),
             lastDay: DateTime.utc(2030, 12, 31),
+            focusedDay: _focusedDay,
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+            eventLoader: _getEventsForDay,
+            startingDayOfWeek: StartingDayOfWeek.monday,
+            calendarStyle: const CalendarStyle(
+              markersMaxCount: 3,
+              markersAlignment: Alignment.bottomCenter,
+            ),
             onDaySelected: (selectedDay, focusedDay) {
               setState(() {
                 _selectedDay = selectedDay;
                 _focusedDay = focusedDay;
               });
-              if (_events[selectedDay] != null) {
-                _showEventDetails(_events[selectedDay]!);
-              }
             },
-            eventLoader: (day) => _events[day] ?? [],
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
           ),
-          IconButton(
-            icon: const Icon(Icons.add_circle, color: Colors.teal, size: 50),
-            onPressed: _showAddEventDialog,
+          const SizedBox(height: 8),
+          Expanded(
+            child: ListView(
+              children: _getEventsForDay(_selectedDay).map((event) {
+                return Card(
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 4.0),
+                  child: ListTile(
+                    title: Text(event.title),
+                    subtitle: Text(event.description),
+                    trailing: Text(event.eventType),
+                    onTap: () => _showEventDetails(event),
+                  ),
+                );
+              }).toList(),
+            ),
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _showAddEventDialog,
+        child: const Icon(Icons.add),
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _descriptionController.dispose();
+    _fuelNeededController.dispose();
+    _locationController.dispose();
+    _reminderTimeController.dispose();
+    _notesController.dispose();
+    super.dispose();
   }
 }

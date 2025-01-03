@@ -1,11 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:autovista/services/firebase_service.dart';
+import '../services/supabase_service.dart';
+import '../models/car_model.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   final String userId;
-  final FirebaseService _firebaseService = FirebaseService();
 
-  HomeScreen({super.key, required this.userId});
+  const HomeScreen({Key? key, required this.userId}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final SupabaseService _supabaseService = SupabaseService();
+  late Future<List<Car>> _carsFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _carsFuture = _supabaseService.getUserCars(widget.userId);
+  }
+
+  Future<void> _signOut() async {
+    try {
+      await _supabaseService.signOut();
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, '/login');
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error signing out: ${e.toString()}'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                           Navigator.pushNamed(
                             context,
                             '/viewVehicle',
-                            arguments: userId,
+                            arguments: widget.userId,
                           );
                         },
                       ),
@@ -82,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                           Navigator.pushNamed(
                             context,
                             '/document_screen',
-                            arguments: userId,
+                            arguments: widget.userId,
                           );
                         },
                       ),
@@ -99,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                           Navigator.pushNamed(
                             context,
                             '/parking_screen',
-                            arguments: userId,
+                            arguments: widget.userId,
                           );
                         },
                       ),
@@ -113,8 +143,7 @@ class HomeScreen extends StatelessWidget {
                             size: 40, color: Colors.teal),
                         tooltip: "View Vehicle Info",
                         onPressed: () async {
-                          final cars =
-                              await _firebaseService.getUserCars(userId);
+                          final cars = await _carsFuture;
                           if (cars.isNotEmpty) {
                             if (!context.mounted) return;
                             Navigator.pushNamed(
@@ -141,21 +170,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               TextButton(
-                onPressed: () async {
-                  try {
-                    await _firebaseService.signOut();
-                    if (!context.mounted) return;
-                    Navigator.pushReplacementNamed(context, '/login');
-                  } catch (e) {
-                    if (!context.mounted) return;
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text("Failed to log out: ${e.toString()}"),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
-                  }
-                },
+                onPressed: _signOut,
                 child: const Text(
                   "Log Out",
                   style: TextStyle(
