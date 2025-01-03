@@ -215,6 +215,9 @@ class _ParkingScreenState extends State<ParkingScreen> {
       );
     }
 
+    // Default to a location if current location is not available
+    final LatLng mapCenter = _currentLocation ?? const LatLng(0, 0);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Parking Location'),
@@ -224,14 +227,18 @@ class _ParkingScreenState extends State<ParkingScreen> {
           Expanded(
             child: FlutterMap(
               options: MapOptions(
-                center: _currentLocation ?? const LatLng(0, 0),
+                center: mapCenter,
                 zoom: 15.0,
+                minZoom: 3.0,
+                maxZoom: 18.0,
+                keepAlive: true,
               ),
               children: [
                 TileLayer(
                   urlTemplate:
                       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                   subdomains: const ['a', 'b', 'c'],
+                  tileProvider: NetworkTileProvider(),
                 ),
                 MarkerLayer(
                   markers: [
