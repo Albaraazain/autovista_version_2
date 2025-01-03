@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 class ViewVehicleScreen extends StatefulWidget {
   final String userId;
 
-  const ViewVehicleScreen({Key? key, required this.userId}) : super(key: key);
+  const ViewVehicleScreen({super.key, required this.userId});
 
   @override
   State<ViewVehicleScreen> createState() => _ViewVehicleScreenState();

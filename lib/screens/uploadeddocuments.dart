@@ -6,7 +6,7 @@ import '../models/document_model.dart';
 class ViewDocumentsScreen extends StatefulWidget {
   final String userId;
 
-  const ViewDocumentsScreen({Key? key, required this.userId}) : super(key: key);
+  const ViewDocumentsScreen({super.key, required this.userId});
 
   @override
   State<ViewDocumentsScreen> createState() => _ViewDocumentsScreenState();

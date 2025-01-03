@@ -9,7 +9,7 @@ import 'package:logger/logger.dart';
 class ParkingScreen extends StatefulWidget {
   final String? userId;
 
-  const ParkingScreen({Key? key, this.userId}) : super(key: key);
+  const ParkingScreen({super.key, this.userId});
 
   @override
   State<ParkingScreen> createState() => _ParkingScreenState();

@@ -6,7 +6,7 @@ import 'package:logger/logger.dart';
 class HomeScreen extends StatefulWidget {
   final String userId;
 
-  const HomeScreen({Key? key, required this.userId}) : super(key: key);
+  const HomeScreen({super.key, required this.userId});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

@@ -7,7 +7,7 @@ import '../services/supabase_service.dart';
 class CalendarFuelScreen extends StatefulWidget {
   final String? userId;
 
-  const CalendarFuelScreen({Key? key, this.userId}) : super(key: key);
+  const CalendarFuelScreen({super.key, this.userId});
 
   @override
   State<CalendarFuelScreen> createState() => _CalendarFuelScreenState();
@@ -272,8 +272,8 @@ class _CalendarFuelScreenState extends State<CalendarFuelScreen> {
                 );
               }
             },
-            child: const Text('Delete'),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('Delete'),
           ),
         ],
       ),

@@ -42,6 +42,7 @@ dependencies:
   geolocator: ^9.0.2
   url_launcher: ^6.2.5
   logger: ^2.0.2+1
+  photo_gallery: ^2.1.1
 
 
 

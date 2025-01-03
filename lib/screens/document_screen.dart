@@ -8,7 +8,7 @@ import 'package:path/path.dart' as path;
 class ScanDocumentScreen extends StatefulWidget {
   final String? userId;
 
-  const ScanDocumentScreen({Key? key, this.userId}) : super(key: key);
+  const ScanDocumentScreen({super.key, this.userId});
 
   @override
   State<ScanDocumentScreen> createState() => _ScanDocumentScreenState();

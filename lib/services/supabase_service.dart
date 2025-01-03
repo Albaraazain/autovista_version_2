@@ -130,11 +130,6 @@ class SupabaseService {
 
       logger.d('Raw response from Supabase: $response');
 
-      if (response == null) {
-        logger.w('Response is null');
-        return [];
-      }
-
       final cars = (response as List)
           .map((car) => Car.fromJson({...car, 'id': car['id']}))
           .toList();
@@ -661,10 +656,6 @@ class SupabaseService {
     try {
       final response =
           await supabase.from('users').select().eq('id', userId).single();
-
-      if (response == null) {
-        throw Exception('User not found');
-      }
 
       return app_models.User.fromJson({...response, 'id': userId});
     } on PostgrestException catch (e) {
