@@ -653,14 +653,29 @@ class SupabaseService {
 
   // User profile methods
   Future<app_models.User> getUserProfile(String userId) async {
+    logger.i('Fetching user profile for userId: $userId');
     try {
-      final response =
-          await supabase.from('users').select().eq('id', userId).single();
+      final response = await supabase
+          .from('users')
+          .select()
+          .eq('id', userId)
+          .single();
 
-      return app_models.User.fromJson({...response, 'id': userId});
+      logger.d('Raw response from Supabase: $response');
+
+      if (response == null) {
+        logger.e('No user profile found for userId: $userId');
+        throw Exception('User profile not found');
+      }
+
+      final user = app_models.User.fromJson({...response, 'id': userId});
+      logger.i('Successfully fetched profile for user: ${user.name}');
+      return user;
     } on PostgrestException catch (e) {
+      logger.e('Database error while fetching user profile: ${e.message}');
       throw Exception('Database error: ${e.message}');
     } catch (e) {
+      logger.e('Unexpected error while fetching user profile: $e');
       throw Exception('Failed to fetch user profile: $e');
     }
   }
@@ -672,6 +687,7 @@ class SupabaseService {
     String? licenseStartDate,
     int? licenseValidityMonths,
   }) async {
+    logger.i('Updating profile for userId: $userId');
     try {
       final Map<String, dynamic> updates = {
         if (name != null) 'name': name,
@@ -683,8 +699,11 @@ class SupabaseService {
       };
 
       if (updates.isEmpty) {
+        logger.w('No updates provided for user profile');
         return; // Nothing to update
       }
+
+      logger.d('Updating user profile with data: $updates');
 
       final response = await supabase
           .from('users')
@@ -693,11 +712,16 @@ class SupabaseService {
           .select();
 
       if (response.isEmpty) {
+        logger.e('User not found or update failed for userId: $userId');
         throw Exception('User not found or update failed');
       }
+
+      logger.i('Successfully updated profile for userId: $userId');
     } on PostgrestException catch (e) {
+      logger.e('Database error while updating user profile: ${e.message}');
       throw Exception('Database error: ${e.message}');
     } catch (e) {
+      logger.e('Unexpected error while updating user profile: $e');
       throw Exception('Failed to update user profile: $e');
     }
   }
