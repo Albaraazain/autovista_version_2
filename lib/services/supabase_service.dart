@@ -5,9 +5,20 @@ import '../models/document_model.dart';
 import '../models/parking_model.dart';
 import '../models/event_model.dart';
 import '../models/user_model.dart' as app_models;
+import 'package:logger/logger.dart';
 
 class SupabaseService {
   final supabase = Supabase.instance.client;
+  final logger = Logger(
+    printer: PrettyPrinter(
+      methodCount: 0,
+      errorMethodCount: 5,
+      lineLength: 50,
+      colors: true,
+      printEmojis: true,
+      printTime: true,
+    ),
+  );
 
   // Authentication methods
   Future<String> registerUser(
@@ -109,18 +120,32 @@ class SupabaseService {
 
   Future<List<Car>> getUserCars(String userId) async {
     try {
+      logger.i('Fetching cars for user: $userId');
+
       final response = await supabase
           .from('cars')
           .select()
           .eq('user_id', userId)
           .order('created_at');
 
-      return (response as List)
+      logger.d('Raw response from Supabase: $response');
+
+      if (response == null) {
+        logger.w('Response is null');
+        return [];
+      }
+
+      final cars = (response as List)
           .map((car) => Car.fromJson({...car, 'id': car['id']}))
           .toList();
+
+      logger.i('Found ${cars.length} cars for user $userId');
+      return cars;
     } on PostgrestException catch (e) {
+      logger.e('Database error while fetching cars: ${e.message}');
       throw Exception('Database error: ${e.message}');
     } catch (e) {
+      logger.e('Unexpected error while fetching cars: $e');
       throw Exception('Failed to fetch cars: $e');
     }
   }
