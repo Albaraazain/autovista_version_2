@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/supabase_service.dart';
 import '../models/car_model.dart';
+import 'package:logger/logger.dart';
 
 class HomeScreen extends StatefulWidget {
   final String userId;
@@ -13,12 +14,29 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final SupabaseService _supabaseService = SupabaseService();
+  final logger = Logger(
+    printer: PrettyPrinter(
+      methodCount: 0,
+      errorMethodCount: 5,
+      lineLength: 50,
+      colors: true,
+      printEmojis: true,
+      printTime: true,
+    ),
+  );
   late Future<List<Car>> _carsFuture;
 
   @override
   void initState() {
     super.initState();
-    _carsFuture = _supabaseService.getUserCars(widget.userId);
+    _refreshCars();
+  }
+
+  Future<void> _refreshCars() async {
+    logger.i('Refreshing cars for user: ${widget.userId}');
+    setState(() {
+      _carsFuture = _supabaseService.getUserCars(widget.userId);
+    });
   }
 
   Future<void> _signOut() async {
@@ -37,12 +55,68 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Widget _buildVehicleInfoButton() {
+    return Column(
+      children: [
+        IconButton(
+          icon: const Icon(Icons.info, size: 40, color: Colors.teal),
+          tooltip: "View Vehicle Info",
+          onPressed: () async {
+            try {
+              logger.i('Fetching cars for vehicle info display');
+              final cars = await _carsFuture;
+              logger.d('Found ${cars.length} cars');
+
+              if (!mounted) return;
+
+              if (cars.isNotEmpty) {
+                logger.i(
+                    'Displaying info for car: ${cars.first.brand} ${cars.first.model}');
+                Navigator.pushNamed(
+                  context,
+                  '/added_vehicle_screen',
+                  arguments: cars.first.toJson(),
+                );
+              } else {
+                logger.w('No vehicles found for user');
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content:
+                        Text("No vehicles found. Please add a vehicle first."),
+                    backgroundColor: Colors.orange,
+                  ),
+                );
+              }
+            } catch (e) {
+              logger.e('Error displaying vehicle info: $e');
+              if (!mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Error loading vehicle info: $e'),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+          },
+        ),
+        const Text("Vehicle Info"),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _refreshCars,
+            tooltip: "Refresh vehicle data",
+          ),
+        ],
       ),
       body: Center(
         child: Padding(
@@ -90,7 +164,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             size: 40, color: Colors.teal),
                         tooltip: "Event Manager",
                         onPressed: () {
-                          Navigator.pushNamed(context, '/eventManager');
+                          Navigator.pushNamed(
+                            context,
+                            '/eventManager',
+                            arguments: widget.userId,
+                          );
                         },
                       ),
                       const Text("Events"),
@@ -102,6 +180,23 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.local_parking,
+                            size: 40, color: Colors.teal),
+                        tooltip: "Parking",
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/parking_screen',
+                            arguments: widget.userId,
+                          );
+                        },
+                      ),
+                      const Text("Parking"),
+                    ],
+                  ),
                   Column(
                     children: [
                       IconButton(
@@ -119,53 +214,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Text("Scanner"),
                     ],
                   ),
+                ],
+              ),
+              const SizedBox(height: 32),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
                   Column(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.location_on,
+                        icon: const Icon(Icons.person,
                             size: 40, color: Colors.teal),
-                        tooltip: "Track Parking Location",
+                        tooltip: "Profile",
                         onPressed: () {
                           Navigator.pushNamed(
                             context,
-                            '/parking_screen',
+                            '/profile_screen',
                             arguments: widget.userId,
                           );
                         },
                       ),
-                      const Text("Parking"),
+                      const Text("Profile"),
                     ],
                   ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.info,
-                            size: 40, color: Colors.teal),
-                        tooltip: "View Vehicle Info",
-                        onPressed: () async {
-                          final cars = await _carsFuture;
-                          if (cars.isNotEmpty) {
-                            if (!context.mounted) return;
-                            Navigator.pushNamed(
-                              context,
-                              '/added_vehicle_screen',
-                              arguments: cars.first.toJson(),
-                            );
-                          } else {
-                            if (!context.mounted) return;
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                    "No vehicles found. Please add a vehicle first."),
-                                backgroundColor: Colors.orange,
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                      const Text("Vehicle Info"),
-                    ],
-                  ),
+                  _buildVehicleInfoButton(),
                 ],
               ),
               const SizedBox(height: 32),
