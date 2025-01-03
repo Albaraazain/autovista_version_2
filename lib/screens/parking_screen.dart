@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 import '../services/supabase_service.dart';
 import '../models/parking_model.dart';
+import 'package:logger/logger.dart';
 
 class ParkingScreen extends StatefulWidget {
   final String? userId;
@@ -16,6 +17,16 @@ class ParkingScreen extends StatefulWidget {
 
 class _ParkingScreenState extends State<ParkingScreen> {
   final SupabaseService _supabaseService = SupabaseService();
+  final logger = Logger(
+    printer: PrettyPrinter(
+      methodCount: 0,
+      errorMethodCount: 5,
+      lineLength: 50,
+      colors: true,
+      printEmojis: true,
+      printTime: true,
+    ),
+  );
   LatLng? _currentLocation;
   LatLng? _parkedLocation;
   bool _isLoading = true;
@@ -24,8 +35,70 @@ class _ParkingScreenState extends State<ParkingScreen> {
   @override
   void initState() {
     super.initState();
-    _getCurrentLocation();
-    _loadParkedLocation();
+    _checkLocationPermission();
+  }
+
+  Future<void> _checkLocationPermission() async {
+    try {
+      logger.i('Checking location permission');
+      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (!serviceEnabled) {
+        logger.w('Location services are disabled');
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+                'Location services are disabled. Please enable them in your settings.'),
+            backgroundColor: Colors.orange,
+          ),
+        );
+        return;
+      }
+
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        logger.i('Requesting location permission');
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          logger.w('Location permissions are denied');
+          if (!mounted) return;
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                  'Location permissions are denied. Please enable them in your settings.'),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+      }
+
+      if (permission == LocationPermission.deniedForever) {
+        logger.w('Location permissions are permanently denied');
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+                'Location permissions are permanently denied. Please enable them in your settings.'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
+      // If we have permission, proceed with getting location and loading data
+      await _getCurrentLocation();
+      await _loadParkedLocation();
+    } catch (e) {
+      logger.e('Error checking location permission: $e');
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error checking location permission: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   Future<void> _getCurrentLocation() async {
