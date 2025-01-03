@@ -16,7 +16,6 @@ xcuserdata
 
 # Pods - Exclude but allow regeneration or commit specific files for Xcode Cloud
 # Ignore Pods, but allow Podfile.lock and Pods/Manifest.lock for dependency tracking
-**/Pods/
 !Podfile.lock
 !Pods/Manifest.lock
 
