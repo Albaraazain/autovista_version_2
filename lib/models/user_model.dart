@@ -1,5 +1,5 @@
 class User {
-  final int? id; // Nullable ID
+  final String? id; // Changed from int? to String? to match UUID format
   final String name;
   final String email;
   final String location;
@@ -18,7 +18,7 @@ class User {
   // Factory constructor to create User from JSON
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'] as int?,
+      id: json['id'] as String?,
       name: json['name'] ?? '', // Default to empty string if null
       email: json['email'] ?? '',
       location: json['location'] ?? '',
