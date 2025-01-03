@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/supabase_service.dart';
 import '../models/user_model.dart';
+import 'package:logger/logger.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String userId;
@@ -14,19 +15,50 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   late Future<User> _userProfileFuture;
   final SupabaseService _supabaseService = SupabaseService();
+  final logger = Logger(
+    printer: PrettyPrinter(
+      methodCount: 0,
+      errorMethodCount: 5,
+      lineLength: 50,
+      colors: true,
+      printEmojis: true,
+      printTime: true,
+    ),
+  );
 
   @override
   void initState() {
     super.initState();
-    _userProfileFuture = _supabaseService.getUserProfile(widget.userId);
+    logger.i('Initializing ProfileScreen for user: ${widget.userId}');
+    _loadUserProfile();
+  }
+
+  Future<void> _loadUserProfile() async {
+    try {
+      logger.d('Fetching user profile data');
+      _userProfileFuture = _supabaseService.getUserProfile(widget.userId);
+    } catch (e) {
+      logger.e('Error loading user profile: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error loading profile: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
 
   Future<void> _signOut() async {
     try {
+      logger.i('User attempting to sign out');
       await _supabaseService.signOut();
+      logger.i('User signed out successfully');
       if (!mounted) return;
       Navigator.pushReplacementNamed(context, '/login');
     } catch (e) {
+      logger.e('Error during sign out: $e');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -53,19 +85,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
         future: _userProfileFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
+            logger.d('Waiting for user profile data');
             return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
+            logger.e('Error in profile data: ${snapshot.error}');
             return Center(
-              child: Text(
-                'Error: ${snapshot.error}',
-                style: const TextStyle(color: Colors.red),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Error: ${snapshot.error}',
+                    style: const TextStyle(color: Colors.red),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: _loadUserProfile,
+                    child: const Text('Retry'),
+                  ),
+                ],
               ),
             );
           }
 
+          if (!snapshot.hasData) {
+            logger.w('No profile data available');
+            return const Center(
+              child: Text('No profile data available'),
+            );
+          }
+
           final user = snapshot.data!;
+          logger.i('Successfully loaded profile for user: ${user.name}');
+
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
