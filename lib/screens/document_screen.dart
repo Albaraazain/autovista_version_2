@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:file_picker/file_picker.dart';
 import 'dart:io';
 import '../services/supabase_service.dart';
 import '../models/document_model.dart';
@@ -30,16 +30,16 @@ class _ScanDocumentScreenState extends State<ScanDocumentScreen> {
   ];
 
   Future<void> _pickFile() async {
-    final ImagePicker picker = ImagePicker();
     try {
-      final XFile? image = await picker.pickImage(
-        source: ImageSource.gallery,
-        maxWidth: 1800,
-        maxHeight: 1800,
+      final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png', 'txt'],
+        allowMultiple: false,
       );
-      if (image != null) {
+
+      if (result != null && result.files.isNotEmpty) {
         setState(() {
-          _selectedFile = File(image.path);
+          _selectedFile = File(result.files.first.path!);
         });
       }
     } catch (e) {
@@ -51,6 +51,27 @@ class _ScanDocumentScreenState extends State<ScanDocumentScreen> {
         ),
       );
     }
+  }
+
+  String _sanitizeFileName(String fileName) {
+    // Replace special characters with their ASCII equivalents
+    final sanitized = fileName
+      .replaceAll('ı', 'i')
+      .replaceAll('İ', 'I')
+      .replaceAll('ğ', 'g')
+      .replaceAll('Ğ', 'G')
+      .replaceAll('ü', 'u')
+      .replaceAll('Ü', 'U')
+      .replaceAll('ş', 's')
+      .replaceAll('Ş', 'S')
+      .replaceAll('ö', 'o')
+      .replaceAll('Ö', 'O')
+      .replaceAll('ç', 'c')
+      .replaceAll('Ç', 'C')
+      // Replace any remaining non-alphanumeric characters (except dots and underscores) with underscores
+      .replaceAll(RegExp(r'[^a-zA-Z0-9._]'), '_');
+
+    return sanitized;
   }
 
   Future<void> _uploadDocument() async {
@@ -70,8 +91,9 @@ class _ScanDocumentScreenState extends State<ScanDocumentScreen> {
 
     try {
       final bytes = await _selectedFile!.readAsBytes();
-      final fileName =
-          '${DateTime.now().millisecondsSinceEpoch}_${path.basename(_selectedFile!.path)}';
+      final originalFileName = path.basename(_selectedFile!.path);
+      final sanitizedFileName = _sanitizeFileName(originalFileName);
+      final fileName = '${DateTime.now().millisecondsSinceEpoch}_$sanitizedFileName';
       final fileType = path.extension(_selectedFile!.path).toLowerCase();
 
       await _supabaseService.uploadDocument(
