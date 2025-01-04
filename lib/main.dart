@@ -10,6 +10,8 @@ import 'screens/document_screen.dart';
 import 'screens/parking_screen.dart';
 import 'screens/added_vehicle.dart';
 import 'screens/uploadeddocuments.dart';
+import 'screens/notifications_screen.dart';
+import 'services/notification_service.dart';
 import 'theme.dart';
 
 void main() async {
@@ -21,6 +23,10 @@ void main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFteG90aWN1dmtkbWV5dGV5dmFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU5MjM4MzQsImV4cCI6MjA1MTQ5OTgzNH0.pwmB8VjrNKdBMdG8mvB5D_Ke4u-ONCk9rMMbrs3mKfE', // Replace with your Supabase anon key
   );
+
+  // Initialize notification service
+  final notificationService = NotificationService();
+  await notificationService.initialize();
 
   runApp(const AutoVistaApp());
 }
@@ -72,6 +78,9 @@ class AutoVistaApp extends StatelessWidget {
             final userId = settings.arguments as String;
             return MaterialPageRoute(
                 builder: (_) => ViewDocumentsScreen(userId: userId));
+          case '/notifications':
+            final userId = settings.arguments as String;
+            return MaterialPageRoute(builder: (_) => NotificationsScreen(userId: userId));
           default:
             return MaterialPageRoute(builder: (_) => const LoginScreen());
         }
