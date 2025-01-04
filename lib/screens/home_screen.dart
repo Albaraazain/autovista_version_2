@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/supabase_service.dart';
+import '../services/notification_service.dart';
 import '../models/car_model.dart';
+import '../models/notification_model.dart';
 import 'package:logger/logger.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final SupabaseService _supabaseService = SupabaseService();
+  final NotificationService _notificationService = NotificationService();
   final logger = Logger(
     printer: PrettyPrinter(
       methodCount: 0,
@@ -25,11 +28,41 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   );
   late Future<List<Car>> _carsFuture;
+  int _unreadNotifications = 0;
 
   @override
   void initState() {
     super.initState();
     _refreshCars();
+    _initializeNotifications();
+  }
+
+  Future<void> _initializeNotifications() async {
+    try {
+      // Request notification permissions first
+      final hasPermission = await _notificationService.requestUserPermission(context);
+      if (hasPermission) {
+        await _notificationService.subscribeToUserNotifications(widget.userId);
+        await _refreshUnreadCount();
+      } else {
+        logger.w('User denied notification permissions');
+      }
+    } catch (e) {
+      logger.e('Error initializing notifications: $e');
+    }
+  }
+
+  Future<void> _refreshUnreadCount() async {
+    try {
+      final notifications = await _notificationService.getNotifications(widget.userId);
+      if (mounted) {
+        setState(() {
+          _unreadNotifications = notifications.where((n) => !n.isRead).length;
+        });
+      }
+    } catch (e) {
+      logger.e('Error refreshing unread count: $e');
+    }
   }
 
   Future<void> _refreshCars() async {
@@ -111,10 +144,52 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text("Home"),
         automaticallyImplyLeading: false,
         actions: [
+          Stack(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.notifications),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/notifications',
+                    arguments: widget.userId,
+                  ).then((_) => _refreshUnreadCount());
+                },
+                tooltip: "Notifications",
+              ),
+              if (_unreadNotifications > 0)
+                Positioned(
+                  right: 8,
+                  top: 8,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    constraints: const BoxConstraints(
+                      minWidth: 16,
+                      minHeight: 16,
+                    ),
+                    child: Text(
+                      _unreadNotifications.toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: _refreshCars,
-            tooltip: "Refresh vehicle data",
+            onPressed: () {
+              _refreshCars();
+              _refreshUnreadCount();
+            },
+            tooltip: "Refresh data",
           ),
         ],
       ),
