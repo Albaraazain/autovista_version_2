@@ -215,21 +215,30 @@ class SupabaseService {
     String fileType,
   ) async {
     try {
+      logger.i('Starting document upload for user: $userId');
+      logger.i('File details - Name: $fileName, Type: $fileType, Size: ${fileBytes.length} bytes');
+
       // 1. Upload file to Supabase Storage
       final String filePath = 'documents/$userId/$fileName';
+      logger.i('Uploading to path: $filePath');
+
       final storageResponse = await supabase.storage
           .from('documents')
           .uploadBinary(filePath, fileBytes);
 
       if (storageResponse.isEmpty) {
+        logger.e('Storage response was empty');
         throw Exception('Failed to upload file to storage');
       }
+      logger.i('File uploaded successfully to storage');
 
       // 2. Get the public URL for the uploaded file
       final String fileUrl =
           supabase.storage.from('documents').getPublicUrl(filePath);
+      logger.i('Generated public URL: $fileUrl');
 
       // 3. Create document record in the database
+      logger.i('Creating database record for document');
       final response = await supabase
           .from('documents')
           .insert({
@@ -245,12 +254,16 @@ class SupabaseService {
           .select()
           .single();
 
+      logger.i('Document record created successfully');
       return Document.fromJson(response);
     } on StorageException catch (e) {
+      logger.e('Storage error during document upload', error: e);
       throw Exception('Storage error: ${e.message}');
     } on PostgrestException catch (e) {
+      logger.e('Database error during document upload', error: e);
       throw Exception('Database error: ${e.message}');
     } catch (e) {
+      logger.e('Unexpected error during document upload', error: e);
       throw Exception('Failed to upload document: $e');
     }
   }
