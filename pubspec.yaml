@@ -37,7 +37,7 @@ dependencies:
   dio: ^5.4.0
   flutter_map: ^6.1.0
   latlong2: ^0.9.1
-  geolocator: ^10.1.0
+  geolocator: ^9.0.2
   url_launcher: ^6.2.5
   logger: ^2.0.2+1
   awesome_notifications: ^0.8.2
