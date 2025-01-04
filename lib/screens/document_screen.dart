@@ -55,6 +55,12 @@ class _ScanDocumentScreenState extends State<ScanDocumentScreen> {
 
   Future<void> _uploadDocument() async {
     if (!_formKey.currentState!.validate() || _selectedFile == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please select a file and fill in all required fields'),
+          backgroundColor: Colors.orange,
+        ),
+      );
       return;
     }
 
@@ -87,10 +93,28 @@ class _ScanDocumentScreenState extends State<ScanDocumentScreen> {
       Navigator.pop(context);
     } catch (e) {
       if (!mounted) return;
+      String errorMessage = 'Error uploading document';
+
+      if (e.toString().contains('Storage error: new row violates row-level security policy')) {
+        errorMessage = 'You don\'t have permission to upload documents. Please check your account settings.';
+      } else if (e.toString().contains('Bucket not found')) {
+        errorMessage = 'Storage system is not properly configured. Please contact support.';
+      } else if (e.toString().contains('storage error')) {
+        errorMessage = 'Unable to store the document. Please try again or contact support if the issue persists.';
+      }
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Error uploading document: ${e.toString()}'),
+          content: Text(errorMessage),
           backgroundColor: Colors.red,
+          duration: const Duration(seconds: 5),
+          action: SnackBarAction(
+            label: 'Dismiss',
+            textColor: Colors.white,
+            onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            },
+          ),
         ),
       );
     } finally {
