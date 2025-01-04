@@ -5708,6 +5708,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/DKImagePickerController/DKImagePickerController.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = DKImagePickerController;
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
@@ -5753,6 +5754,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/DKImagePickerController/DKImagePickerController.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = DKImagePickerController;
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
@@ -5796,6 +5798,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/DKImagePickerController/DKImagePickerController.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = DKImagePickerController;
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
@@ -5815,6 +5818,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002AE0 /* DKImagePickerController.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -5827,6 +5831,7 @@
 				IBSC_MODULE = DKImagePickerController;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/ResourceBundle-DKImagePickerController-DKImagePickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -5841,6 +5846,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002AD0 /* DKImagePickerController.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -5854,6 +5860,7 @@
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/ResourceBundle-DKImagePickerController-DKImagePickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -5868,6 +5875,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002AE0 /* DKImagePickerController.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -5881,6 +5889,7 @@
 				IBSC_MODULE = DKImagePickerController;
 				INFOPLIST_FILE = "Target Support Files/DKImagePickerController/ResourceBundle-DKImagePickerController-DKImagePickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = DKImagePickerController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -5921,6 +5930,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/DKPhotoGallery/DKPhotoGallery.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = DKPhotoGallery;
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
@@ -5966,6 +5976,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/DKPhotoGallery/DKPhotoGallery.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = DKPhotoGallery;
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
@@ -6009,6 +6020,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/DKPhotoGallery/DKPhotoGallery.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = DKPhotoGallery;
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
@@ -6028,6 +6040,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002EC0 /* DKPhotoGallery.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6040,6 +6053,7 @@
 				IBSC_MODULE = DKPhotoGallery;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/ResourceBundle-DKPhotoGallery-DKPhotoGallery-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6054,6 +6068,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002EB0 /* DKPhotoGallery.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6067,6 +6082,7 @@
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/ResourceBundle-DKPhotoGallery-DKPhotoGallery-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6081,6 +6097,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00002EC0 /* DKPhotoGallery.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -6094,6 +6111,7 @@
 				IBSC_MODULE = DKPhotoGallery;
 				INFOPLIST_FILE = "Target Support Files/DKPhotoGallery/ResourceBundle-DKPhotoGallery-DKPhotoGallery-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = DKPhotoGallery;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6111,6 +6129,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				DEFINES_MODULE = YES;
@@ -6122,6 +6141,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_SUPPRESS_WARNINGS = YES;
@@ -6136,6 +6156,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				DEFINES_MODULE = YES;
@@ -6148,6 +6169,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_SUPPRESS_WARNINGS = YES;
@@ -6161,6 +6183,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				DEFINES_MODULE = YES;
@@ -6172,6 +6195,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_SUPPRESS_WARNINGS = YES;
@@ -6184,6 +6208,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003680 /* IosAwnCore.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6211,6 +6236,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/IosAwnCore/IosAwnCore.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"-framework UserNotifications",
 					"-framework UIKit",
@@ -6235,6 +6261,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003670 /* IosAwnCore.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6263,6 +6290,7 @@
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/IosAwnCore/IosAwnCore.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"-framework UserNotifications",
 					"-framework UIKit",
@@ -6286,6 +6314,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00003680 /* IosAwnCore.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6313,6 +6342,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/IosAwnCore/IosAwnCore.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"-framework UserNotifications",
 					"-framework UIKit",
@@ -6337,6 +6367,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000041C0 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6361,6 +6392,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = SDWebImage;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
@@ -6380,6 +6412,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000041B0 /* SDWebImage.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6405,6 +6438,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = SDWebImage;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
@@ -6423,6 +6457,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000041C0 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6447,6 +6482,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = SDWebImage;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
@@ -6466,6 +6502,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000041C0 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6478,6 +6515,7 @@
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6492,6 +6530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000041B0 /* SDWebImage.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6505,6 +6544,7 @@
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6519,6 +6559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000041C0 /* SDWebImage.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -6532,6 +6573,7 @@
 				IBSC_MODULE = SDWebImage;
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/ResourceBundle-SDWebImage-SDWebImage-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = SDWebImage;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6547,6 +6589,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004430 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6571,6 +6614,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/SwiftyGif/SwiftyGif.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = SwiftyGif;
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
@@ -6590,6 +6634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004420 /* SwiftyGif.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6615,6 +6660,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/SwiftyGif/SwiftyGif.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = SwiftyGif;
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
@@ -6633,6 +6679,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004430 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -6657,6 +6704,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/SwiftyGif/SwiftyGif.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_MODULE_NAME = SwiftyGif;
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
@@ -6676,6 +6724,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004430 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6688,6 +6737,7 @@
 				IBSC_MODULE = SwiftyGif;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/ResourceBundle-SwiftyGif-SwiftyGif-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6702,6 +6752,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004420 /* SwiftyGif.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6715,6 +6766,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/ResourceBundle-SwiftyGif-SwiftyGif-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6729,6 +6781,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004430 /* SwiftyGif.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -6742,6 +6795,7 @@
 				IBSC_MODULE = SwiftyGif;
 				INFOPLIST_FILE = "Target Support Files/SwiftyGif/ResourceBundle-SwiftyGif-SwiftyGif-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6757,6 +6811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004660 /* app_links.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6791,6 +6846,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/app_links/app_links.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -6816,6 +6872,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004650 /* app_links.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6851,6 +6908,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/app_links/app_links.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -6875,6 +6933,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004660 /* app_links.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -6909,6 +6968,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/app_links/app_links.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -6934,6 +6994,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004660 /* app_links.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6946,6 +7007,7 @@
 				IBSC_MODULE = app_links;
 				INFOPLIST_FILE = "Target Support Files/app_links/ResourceBundle-app_links_ios_privacy-app_links-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = app_links_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6960,6 +7022,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004650 /* app_links.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -6973,6 +7036,7 @@
 				INFOPLIST_FILE = "Target Support Files/app_links/ResourceBundle-app_links_ios_privacy-app_links-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = app_links_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6987,6 +7051,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004660 /* app_links.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -7000,6 +7065,7 @@
 				IBSC_MODULE = app_links;
 				INFOPLIST_FILE = "Target Support Files/app_links/ResourceBundle-app_links_ios_privacy-app_links-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = app_links_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7015,6 +7081,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004820 /* awesome_notifications.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7050,6 +7117,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/awesome_notifications/awesome_notifications.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7075,6 +7143,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004810 /* awesome_notifications.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7111,6 +7180,7 @@
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/awesome_notifications/awesome_notifications.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7135,6 +7205,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004820 /* awesome_notifications.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7170,6 +7241,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/awesome_notifications/awesome_notifications.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7195,6 +7267,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004AA0 /* file_picker.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7229,6 +7302,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/file_picker/file_picker.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7254,6 +7328,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004A90 /* file_picker.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7289,6 +7364,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/file_picker/file_picker.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7313,6 +7389,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004AA0 /* file_picker.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7347,6 +7424,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/file_picker/file_picker.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7372,6 +7450,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004AA0 /* file_picker.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -7384,6 +7463,7 @@
 				IBSC_MODULE = file_picker;
 				INFOPLIST_FILE = "Target Support Files/file_picker/ResourceBundle-file_picker_ios_privacy-file_picker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = file_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7398,6 +7478,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004A90 /* file_picker.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -7411,6 +7492,7 @@
 				INFOPLIST_FILE = "Target Support Files/file_picker/ResourceBundle-file_picker_ios_privacy-file_picker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = file_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7425,6 +7507,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004AA0 /* file_picker.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -7438,6 +7521,7 @@
 				IBSC_MODULE = file_picker;
 				INFOPLIST_FILE = "Target Support Files/file_picker/ResourceBundle-file_picker_ios_privacy-file_picker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = file_picker_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7453,6 +7537,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004E80 /* geolocator_apple.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7487,6 +7572,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/geolocator_apple/geolocator_apple.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7512,6 +7598,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004E70 /* geolocator_apple.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7547,6 +7634,7 @@
 				);
 				MODULEMAP_FILE = "Target Support Files/geolocator_apple/geolocator_apple.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7571,6 +7659,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004E80 /* geolocator_apple.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7605,6 +7694,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/geolocator_apple/geolocator_apple.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7630,6 +7720,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004E80 /* geolocator_apple.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -7642,6 +7733,7 @@
 				IBSC_MODULE = geolocator_apple;
 				INFOPLIST_FILE = "Target Support Files/geolocator_apple/ResourceBundle-geolocator_apple_privacy-geolocator_apple-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = geolocator_apple_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7656,6 +7748,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004E70 /* geolocator_apple.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -7669,6 +7762,7 @@
 				INFOPLIST_FILE = "Target Support Files/geolocator_apple/ResourceBundle-geolocator_apple_privacy-geolocator_apple-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = geolocator_apple_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7683,6 +7777,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00004E80 /* geolocator_apple.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -7696,6 +7791,7 @@
 				IBSC_MODULE = geolocator_apple;
 				INFOPLIST_FILE = "Target Support Files/geolocator_apple/ResourceBundle-geolocator_apple_privacy-geolocator_apple-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = geolocator_apple_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7711,6 +7807,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005080 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7740,6 +7837,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/path_provider_foundation/path_provider_foundation.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7765,6 +7863,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005070 /* path_provider_foundation.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7795,6 +7894,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/path_provider_foundation/path_provider_foundation.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7819,6 +7919,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005080 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7848,6 +7949,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/path_provider_foundation/path_provider_foundation.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -7873,6 +7975,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005080 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -7885,6 +7988,7 @@
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7899,6 +8003,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005070 /* path_provider_foundation.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -7912,6 +8017,7 @@
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7926,6 +8032,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005080 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -7939,6 +8046,7 @@
 				IBSC_MODULE = path_provider_foundation;
 				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7954,6 +8062,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000052A0 /* shared_preferences_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -7983,6 +8092,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8008,6 +8118,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005290 /* shared_preferences_foundation.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8038,6 +8149,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8062,6 +8174,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000052A0 /* shared_preferences_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8091,6 +8204,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/shared_preferences_foundation/shared_preferences_foundation.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8116,6 +8230,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000052A0 /* shared_preferences_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -8128,6 +8243,7 @@
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = shared_preferences_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -8142,6 +8258,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E00005290 /* shared_preferences_foundation.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -8155,6 +8272,7 @@
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = shared_preferences_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -8169,6 +8287,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000052A0 /* shared_preferences_foundation.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -8182,6 +8301,7 @@
 				IBSC_MODULE = shared_preferences_foundation;
 				INFOPLIST_FILE = "Target Support Files/shared_preferences_foundation/ResourceBundle-shared_preferences_foundation_privacy-shared_preferences_foundation-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = shared_preferences_foundation_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -8197,6 +8317,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000054E0 /* url_launcher_ios.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8226,6 +8347,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/url_launcher_ios/url_launcher_ios.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8251,6 +8373,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000054D0 /* url_launcher_ios.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8281,6 +8404,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/url_launcher_ios/url_launcher_ios.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8305,6 +8429,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000054E0 /* url_launcher_ios.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8334,6 +8459,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MODULEMAP_FILE = "Target Support Files/url_launcher_ios/url_launcher_ios.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8359,6 +8485,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000054E0 /* url_launcher_ios.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -8371,6 +8498,7 @@
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = url_launcher_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -8385,6 +8513,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000054D0 /* url_launcher_ios.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_IDENTITY = "-";
@@ -8398,6 +8527,7 @@
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = url_launcher_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -8412,6 +8542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46EB2E000054E0 /* url_launcher_ios.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -8425,6 +8556,7 @@
 				IBSC_MODULE = url_launcher_ios;
 				INFOPLIST_FILE = "Target Support Files/url_launcher_ios/ResourceBundle-url_launcher_ios_privacy-url_launcher_ios-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				PRODUCT_NAME = url_launcher_ios_privacy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -8441,6 +8573,7 @@
 			baseConfigurationReference = 46EB2E000056E0 /* Pods-Runner.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8474,6 +8607,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8500,6 +8634,7 @@
 			baseConfigurationReference = 46EB2E000056F0 /* Pods-Runner.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8534,6 +8669,7 @@
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
 				ONLY_ACTIVE_ARCH = NO;
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -8559,6 +8695,7 @@
 			baseConfigurationReference = 46EB2E00005700 /* Pods-Runner.profile.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -8592,6 +8729,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				ONLY_SAFE_API_EXTENSIONS = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
